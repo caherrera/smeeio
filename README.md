@@ -1,4 +1,4 @@
-# smeeio
+# smee.io
 Docker version of smee.io client
 
 
@@ -17,6 +17,7 @@ services:
     image: carlositline/smee:latest
     environment: 
       WEBHOOK_TARGET: "http://jenkins:8080"
+      WEBHOOK_PROXY_URL: "https://smee.io/lalaland"
     restart: always
 ```
 
