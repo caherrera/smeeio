@@ -14,6 +14,9 @@ get-version:
 	@docker run --rm -it $(IMAGE_NAME) -v > VERSION
 	@cat VERSION
 
+run:
+	@docker run --rm -it $(IMAGE_NAME)
+
 .PHONY: build docker-tag docker-push get-version
 
 all: build get-version docker-tag docker-push

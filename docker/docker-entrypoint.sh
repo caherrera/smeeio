@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [[ $1 == -* ]]; then
-    exec smee "$@"
+if [ "${1#-*}" != "$1" ]; then
+    smee "$@"
 else
 
     WEBHOOK_TARGET="${1:-${WEBHOOK_TARGET}}"
@@ -19,5 +19,5 @@ else
         exit 1
     fi
 
-    exec smee --target "${WEBHOOK_TARGET:-$1}" --source "$WEBHOOK_PROXY_URL" --logger console
+    smee --target "${WEBHOOK_TARGET:-$1}" --url "$WEBHOOK_PROXY_URL"
 fi
